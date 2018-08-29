@@ -2,10 +2,6 @@
 
 CONDAENV=ontoemma
 
-conda update -n base conda
-
-conda remove -y --name ${CONDAENV} --all
-
 conda create -n ${CONDAENV} -y python==3.6 pip pytest || true
 
 echo "Activating Conda Environment ----->"

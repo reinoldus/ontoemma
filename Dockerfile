@@ -14,6 +14,4 @@ RUN ./setup-docker.sh
 
 ENV CONDAENV=ontoemma
 
-RUN source activate ${CONDAENV}
-
 RUN python -c "import nltk;nltk.download('wordnet');nltk.download('stopwords')"
