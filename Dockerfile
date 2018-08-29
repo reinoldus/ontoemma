@@ -1,6 +1,6 @@
 FROM reinoldus/ontoemma-training-data AS dataprovider
 
-FROM conda/miniconda3
+FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y gzip wget git build-essential
 
