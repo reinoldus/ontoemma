@@ -23,5 +23,5 @@ fi
 
 python -m spacy download en
 
-python setup.py develop
+
 
