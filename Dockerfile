@@ -12,6 +12,14 @@ RUN ./setup-docker.sh
 
 ENV CONDAENV=ontoemma
 
+
+# Otherwise the progressbar stuff does not work...
+RUN apt-get install -y locales && locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 COPY --from=dataprovider /data/* /ontoemma/data/
+
 
 # RUN python -c "import nltk;nltk.download('wordnet');nltk.download('stopwords')"
