@@ -1,27 +1,19 @@
-FROM ubuntu:18.04
+FROM reinoldus/ontoemma-training-data AS dataprovider
 
-RUN apt-get update && apt-get install -y gzip wget git
+FROM conda/miniconda3
 
-COPY download-data.sh /
-
-RUN mkdir -p /data && bash download-data.sh
+RUN apt-get update && apt-get install -y gzip wget git build-essential
 
 COPY ./ /ontoemma
 
-RUN mv /data/* /ontoemma/data/
+COPY --from=dataprovider /data/* /ontoemma/data/
 
 WORKDIR /ontoemma
 
-#RUN pip3 install -r requirements.txt
-#RUN pip3 install http://download.pytorch.org/whl/cpu/torch-0.4.1-cp36-cp36m-linux_x86_64.whl
-#RUN pip3 install torchvision
-
-RUN apt-get install -y build-essential
-
-RUN ./setup.sh
+RUN ./setup-docker.sh
 
 ENV CONDAENV=ontoemma
 
-RUN source ~/miniconda3/bin/activate ${CONDAENV}
+RUN source activate ${CONDAENV}
 
 RUN python -c "import nltk;nltk.download('wordnet');nltk.download('stopwords')"
