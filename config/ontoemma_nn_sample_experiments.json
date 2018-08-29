@@ -25,7 +25,7 @@
       "tokens": {
         "type": "embedding",
         "pretrained_file": "/ontoemma/data/weights100.txt.gz",
-        "embedding_dim": 300,
+        "embedding_dim": 100,
         "trainable": false
       },
       "token_characters": {
@@ -46,13 +46,13 @@
       "tokens": {
         "type": "embedding",
         "pretrained_file": "/ontoemma/data/weights100.txt.gz",
-        "embedding_dim": 300,
+        "embedding_dim": 100,
         "trainable": false
       }
     },
     "name_encoder": {
       "type": "lstm",
-      "input_size": 400,
+      "input_size": 200,
       "hidden_size": 100,
       "num_layers": 2,
       "dropout": 0.2,
@@ -60,7 +60,7 @@
     },
     "definition_encoder": {
       "type": "lstm",
-      "input_size": 300,
+      "input_size": 100,
       "hidden_size": 100,
       "num_layers": 2,
       "dropout": 0.2,
