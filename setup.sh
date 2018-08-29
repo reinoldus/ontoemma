@@ -17,6 +17,8 @@ fi
 
 source ~/miniconda3/bin/deactivate ${CONDAENV}
 
+conda update -n base conda
+
 conda remove -y --name ${CONDAENV} --all
 
 conda create -n ${CONDAENV} -y python==3.6 pip pytest || true
