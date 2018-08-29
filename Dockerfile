@@ -18,13 +18,14 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
+COPY --from=dataprovider /data/* /ontoemma/data/
+
 COPY ./ /ontoemma
 
 WORKDIR /ontoemma
 
 RUN ./setup-docker2.sh
-
-COPY --from=dataprovider /data/* /ontoemma/data/
+RUN mkdir /storage
 
 
 # RUN python -c "import nltk;nltk.download('wordnet');nltk.download('stopwords')"
