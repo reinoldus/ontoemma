@@ -11,7 +11,7 @@ export PATH=$HOME/miniconda/bin:$HOME/miniconda3/bin:$PATH
 
 echo "Activating Conda Environment ----->"
 
-source activate ${CONDAENV}
+# source activate ${CONDAENV}
 
 pip install -r requirements.txt
 

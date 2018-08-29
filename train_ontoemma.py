@@ -27,6 +27,7 @@ def main(argv):
         else:
             ssl._create_default_https_context = _create_unverified_https_context
         nltk.download("stopwords")
+        nltk.download("wordnet")
 
     try:
         # TODO(waleeda): use argparse instead of getopt to parse command line arguments.
