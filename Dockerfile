@@ -1,6 +1,6 @@
 FROM reinoldus/ontoemma-training-data AS dataprovider
 
-FROM nvcr.io/nvidia/cuda:9.2-base-ubuntu16.04
+FROM nvcr.io/nvidia/9.0-devel-ubuntu16.04
 
 RUN apt-get update && apt-get install -y gzip wget git build-essential
 
